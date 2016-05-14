@@ -1,0 +1,16 @@
+1、下载Struts2的jar包
+下载地址：http://archive.apache.org/dist/struts/binaries/
+2、创建一个web project项目
+3、导入Struts2所需jar包
+4、配置web.xml
+FilterDispatcher是早期struts2的过滤器，后期的都用StrutsPrepareAndExecuteFilter了，如 2.1.6、2.1.8。StrutsPrepareAndExecuteFilter名字已经很能说明问题了，prepare与execute，前者表示准备，可以说是指filter中的init方法，即配制的导入；后者表示进行过滤，指doFilter方法，即将request请求，转发给对应的 action去处理。
+StrutsPrepareAndExecuteFilter是自2.1.3开始就替代了FilterDispatcher的.!
+web.xml中配置一个过滤器，来拦截用户发起的请求，并进行一些预处理，根据配置文件把请求分配给对应的action并将请求中的参数与action中的字段进行对应赋值.
+5、配置struts.xml
+下面需要创建struts.xml文件，配置strust2要调用的action。直接新建在src目录下
+
+6、写action类(HelloWorld.java)
+这个类主要用于struts2跳转到这个action后。默认执行execute()方法。并根据结果返回字符，然后struts.xml根据返回的字符跳到相应的页面
+7、写jsp页面
+新建一个jsp页面来呈现信息
+action是你要访问的url地址，result是action处理完返回的页面。
